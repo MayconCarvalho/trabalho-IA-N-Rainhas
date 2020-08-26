@@ -1,3 +1,4 @@
 from br.cefet.NRainhas.NRainhasInd import NRainhasInd
 
-rainnha = NRainhasInd(8)
+rainnha = NRainhasInd(4)
+print(rainnha.get_avaliacao())

@@ -13,7 +13,7 @@ class NRainhasInd(Individuo):
         self.__genes = ndarray([])
 
         if rand:
-            self.__genes = permutation(nRainhas)
+            self.__genes = permutation(range(1, self.__nRainhas + 1))
         else:
             self.__genes = zeros(nRainhas)
 
@@ -39,7 +39,17 @@ class NRainhasInd(Individuo):
 
     def get_avaliacao(self):
         if self._avaliacao == -1:
-            return self._avaliacao
+            self._avaliacao = 0
+            for i in range(self.__nRainhas):
+                for j in range(i + 1, self.__nRainhas):
+                    if self.__genes[i] == self.__genes[j]:
+                        self._avaliacao += 1
+                    if self.__genes[i] == (self.__genes[j] - abs(j - i)):
+                        self._avaliacao += 1
+                    if self.__genes[i] == (self.__genes[j] + abs(j - i)):
+                        self._avaliacao += 1
+
+        return self._avaliacao
 
     def __str__(self):
         return f'avaliacao: {self._avaliacao}, ' \
