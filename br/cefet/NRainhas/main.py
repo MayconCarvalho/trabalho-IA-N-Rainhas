@@ -1,3 +1,3 @@
 from br.cefet.NRainhas.NRainhasInd import NRainhasInd
 
-rainnha = NRainhasInd(20)
+rainnha = NRainhasInd(8)
