@@ -12,7 +12,7 @@ class FGA:
     def executar(nPop: int, nGeracoes: int, nElite: int, indFact: IndividuoFactory):
         popInicial = [indFact.get_individuo() for _ in range(nPop)]
 
-        for g in range(nGeracoes):
+        for g in range(1, nGeracoes + 1):
             filhos = []
             for i in range(0, len(popInicial), 2):
                 filhos += popInicial[i].recombinar(popInicial[i + 1])
@@ -23,8 +23,6 @@ class FGA:
 
             aux = popInicial + filhos + mutantes
             aux.sort(key=lambda x: x.get_avaliacao())
-            print('listao')
-            [print(i) for i in aux]
 
             newPop = []
             for i in range(nElite):
@@ -32,10 +30,9 @@ class FGA:
                     newPop.append(aux[i])
 
             # roleta viciada
-            while len(newPop) <= (nPop - nElite):
+            while len(newPop) < nPop:
                 soma = reduce(lambda x, y: y + x, aux)
                 roleta = random.random() * soma
-                print(roleta)
                 roletaParcial = 0
                 j = 0
                 while roletaParcial < roleta:
@@ -49,4 +46,7 @@ class FGA:
                     newPop.append(aux[j])
 
                 aux.pop(j)
-            [print(i) for i in newPop]
+
+            popInicial = newPop
+            print(f'Nº geração: {g}', end='. ')
+            print(f'Melhor individuo: {popInicial[0]}')

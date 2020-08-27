@@ -3,8 +3,8 @@ from br.cefet.NRainhas.FGA import FGA
 
 
 rainhas = 8
-nPop = 10
-nGeracoes = 1
-nElite = 1
+nPop = 40
+nGeracoes = 10
+nElite = 8
 indFact = NRainhasIndFactory(rainhas)
 FGA.executar(nPop, nGeracoes, nElite, indFact)

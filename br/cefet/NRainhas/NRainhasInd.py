@@ -101,5 +101,4 @@ class NRainhasInd(Individuo):
 
     def __str__(self):
         return f'avaliacao: {self._avaliacao}, ' \
-               f'genes: {self.__genes}, ' \
-               f'NRainhas: {self.__nRainhas}'
+               f'genes: {self.__genes}'
