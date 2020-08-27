@@ -1,4 +1,5 @@
 from br.cefet.NRainhas.NRainhasInd import NRainhasInd
 
-rainnha = NRainhasInd(4)
-print(rainnha.get_avaliacao())
+num = 5
+rainnha = NRainhasInd(num)
+[print(i) for i in rainnha.recombinar(NRainhasInd(num))]

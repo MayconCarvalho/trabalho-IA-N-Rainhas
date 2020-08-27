@@ -3,6 +3,7 @@ from numpy.random import permutation
 from numpy import ndarray
 from numpy import zeros
 from numpy import random
+from numpy import where
 
 
 class NRainhasInd(Individuo):
@@ -18,7 +19,38 @@ class NRainhasInd(Individuo):
             self.__genes = zeros(nRainhas)
 
     def recombinar(self, ind):
-        ret = []
+        corte: int = random.randint(1, self.__nRainhas)
+        F1 = NRainhasInd(self.__nRainhas, False)
+        F2 = NRainhasInd(self.__nRainhas, False)
+
+        genes = zeros(self.__nRainhas)
+        for i in range(0, corte):
+            genes[i] = self.__genes[i]
+
+        for i in range(corte, self.__nRainhas):
+            if ind.get_genes()[i] not in genes:
+                genes[i] = ind.get_genes()[i]
+
+        for i in range(self.__nRainhas):
+            if i + 1 not in genes:
+                index = where(genes == 0)
+                genes[index[0][0]] = i + 1
+        F1.__genes = genes
+
+        genes = zeros(self.__nRainhas)
+        for i in range(0, corte):
+            genes[i] = ind.get_genes()[i]
+
+        for i in range(corte, self.__nRainhas):
+            if self.get_genes()[i] not in genes:
+                genes[i] = self.get_genes()[i]
+
+        for i in range(self.__nRainhas):
+            if i + 1 not in genes:
+                index = where(genes == 0)
+                genes[index[0][0]] = i + 1
+        F2.__genes = genes
+        ret = [F1, F2]
         return ret
 
     def mutar(self):
@@ -50,6 +82,9 @@ class NRainhasInd(Individuo):
                         self._avaliacao += 1
 
         return self._avaliacao
+
+    def get_genes(self):
+        return self.__genes
 
     def __str__(self):
         return f'avaliacao: {self._avaliacao}, ' \
