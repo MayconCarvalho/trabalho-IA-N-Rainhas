@@ -37,7 +37,7 @@ class NRainhasInd(Individuo):
                 genes[index[0][0]] = i + 1
         F1.__genes = genes
 
-        genes = zeros(self.__nRainhas,dtype=int)
+        genes = zeros(self.__nRainhas, dtype=int)
         for i in range(0, corte):
             genes[i] = ind.get_genes()[i]
 
@@ -69,7 +69,7 @@ class NRainhasInd(Individuo):
 
         return mut
 
-    def get_avaliacao(self):
+    def get_avaliacao(self) -> int:
         if self._avaliacao == -1:
             self._avaliacao = 0
             for i in range(self.__nRainhas):
@@ -85,6 +85,19 @@ class NRainhasInd(Individuo):
 
     def get_genes(self):
         return self.__genes
+
+    def __add__(self, other) -> float:
+        if not isinstance(other, float):
+            other = float(other.get_avaliacao())
+
+        if self.get_avaliacao() != 0 and other != 0:
+            return 1./self._avaliacao + 1./other
+        elif self.get_avaliacao() != 0 and other == 0:
+            return 1./self._avaliacao
+        elif self.get_avaliacao() == 0 and other != 0:
+            return 1./other
+        else:
+            return 0.0
 
     def __str__(self):
         return f'avaliacao: {self._avaliacao}, ' \
