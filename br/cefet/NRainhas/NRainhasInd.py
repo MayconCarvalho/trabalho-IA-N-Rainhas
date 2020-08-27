@@ -23,7 +23,7 @@ class NRainhasInd(Individuo):
         F1 = NRainhasInd(self.__nRainhas, False)
         F2 = NRainhasInd(self.__nRainhas, False)
 
-        genes = zeros(self.__nRainhas)
+        genes = zeros(self.__nRainhas, dtype=int)
         for i in range(0, corte):
             genes[i] = self.__genes[i]
 
@@ -37,7 +37,7 @@ class NRainhasInd(Individuo):
                 genes[index[0][0]] = i + 1
         F1.__genes = genes
 
-        genes = zeros(self.__nRainhas)
+        genes = zeros(self.__nRainhas,dtype=int)
         for i in range(0, corte):
             genes[i] = ind.get_genes()[i]
 

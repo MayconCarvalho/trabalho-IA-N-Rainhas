@@ -1,7 +1,9 @@
 from br.cefet.NRainhas.Individuo import Individuo
+from abc import ABC, abstractmethod
 
 
-class IndividuoFactory:
+class IndividuoFactory(ABC):
 
+    @abstractmethod
     def get_individuo(self) -> Individuo:
         pass
