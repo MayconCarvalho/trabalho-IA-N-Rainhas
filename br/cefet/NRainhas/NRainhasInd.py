@@ -16,7 +16,7 @@ class NRainhasInd(Individuo):
         if rand:
             self.__genes = permutation(range(1, self.__nRainhas + 1))
         else:
-            self.__genes = zeros(nRainhas)
+            self.__genes = zeros(nRainhas, dtype=int)
 
     def recombinar(self, ind):
         corte: int = random.randint(1, self.__nRainhas)

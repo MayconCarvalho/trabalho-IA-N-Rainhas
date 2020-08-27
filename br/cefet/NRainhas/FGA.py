@@ -34,11 +34,9 @@ class FGA:
                 soma = reduce(lambda x, y: y + x, aux)
                 roleta = random.random() * soma
                 roletaParcial = 0
-                j = 0
+                j = nElite
                 while roletaParcial < roleta:
-                    if aux[j].get_avaliacao() == 0:
-                        roletaParcial += 0
-                    else:
+                    if aux[j].get_avaliacao() != 0:
                         roletaParcial += 1. / aux[j].get_avaliacao()
                     j += 1
 
