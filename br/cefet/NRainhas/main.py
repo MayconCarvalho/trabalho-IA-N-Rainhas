@@ -1,5 +1,10 @@
-from br.cefet.NRainhas.NRainhasInd import NRainhasInd
+from br.cefet.NRainhas.NRainhasIndFactory import NRainhasIndFactory
+from br.cefet.NRainhas.FGA import FGA
 
-num = 5
-rainnha = NRainhasInd(num)
-[print(i) for i in rainnha.recombinar(NRainhasInd(num))]
+
+rainhas = 8
+nPop = 10
+nGeracoes = 1
+nElite = 1
+indFact = NRainhasIndFactory(rainhas)
+FGA.executar(nPop, nGeracoes, nElite, indFact)
