@@ -62,9 +62,7 @@ class NRainhasInd(Individuo):
             ind2 = random.randint(self.__nRainhas)
 
         genesAux = self.__genes
-        aux = genesAux[ind1]
-        genesAux[ind1] = genesAux[ind2]
-        genesAux[ind2] = aux
+        genesAux[ind1], genesAux[ind2] = genesAux[ind2], genesAux[ind1]
         mut.__genes = genesAux
 
         return mut
