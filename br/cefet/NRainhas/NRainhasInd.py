@@ -19,7 +19,7 @@ class NRainhasInd(Individuo):
             self.__genes = zeros(nRainhas, dtype=int)
 
     def recombinar(self, ind):
-        corte: int = random.randint(1, self.__nRainhas)
+        corte: int = random.randint(1, self.__nRainhas - 1)
         F1 = NRainhasInd(self.__nRainhas, False)
         F2 = NRainhasInd(self.__nRainhas, False)
 
@@ -89,11 +89,11 @@ class NRainhasInd(Individuo):
             other = float(other.get_avaliacao())
 
         if self.get_avaliacao() != 0 and other != 0:
-            return 1./self._avaliacao + 1./other
+            return 1. / self._avaliacao + 1. / other
         elif self.get_avaliacao() != 0 and other == 0:
-            return 1./self._avaliacao
+            return 1. / self._avaliacao
         elif self.get_avaliacao() == 0 and other != 0:
-            return 1./other
+            return 1. / other
         else:
             return 0.0
 
