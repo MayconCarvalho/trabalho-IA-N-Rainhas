@@ -97,6 +97,9 @@ class NRainhasInd(Individuo):
         else:
             return 0.0
 
+    def __lt__(self, other):
+        return self.get_avaliacao() < other.get_avaliacao()
+
     def __str__(self):
         return f'avaliacao: {self._avaliacao}, ' \
                f'genes: {self.__genes}'
