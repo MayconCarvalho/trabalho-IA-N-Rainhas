@@ -4,14 +4,12 @@
 
 ### Como executar
 
-Para executar o software, você precisa primeiro instalar as dependências. A única dependência para esse programa é o `numpy`. Então, basta instalá-lo com o `pip` assim:
+Para executar o algortimo, precisamos primeiro instalar as dependências. A única dependência para esse programa é o `numpy`. Então, basta instalá-lo com o `pip` assim:
 
 ```
 pip install numpy
 ```
 
-Para executar, basta chamar o programa assim: 
+### Obs:
 
-```
-python3 main.py  
-```
+Ambiente usado para desenvolver foi a IDE Pycharm Community Edition
